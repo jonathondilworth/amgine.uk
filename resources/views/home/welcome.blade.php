@@ -2,6 +2,12 @@
 <section class="welcome-area bg-bottom-center" id="welcome-1">
 	<div class="header-token text">
 		<div class="container text-center">
+		    <!-- Alert User -->
+		    @if(Session::has('success'))
+		        <div class="alert alert-success">
+		            {{Session::get('success')}}
+		        </div>
+		    @endif
 			<div class="row">
 				<div class="col-lg-12 align-self-center">
 					<!-- <h1>AMGINE, The Future, Distributed Ledger Technologies</h1> -->

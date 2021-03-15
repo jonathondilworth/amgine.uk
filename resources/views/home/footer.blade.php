@@ -21,21 +21,34 @@
 					</div>
 				</div>
 				<div class="offset-lg-1 offset-md-1 col-lg-6 col-md-6 col-sm-12">
-					<div class="contact-form">
+
+					<form id="contact-us" name="contact-us" method="post" action="/" class="contact-form">
+						@csrf
+						@method('POST')
 						<h3 class="section-title">Say Something</h3>
 						<div class="form-element">
-							<input type="text" placeholder="Name, surname">
+							<input id="name" name="name" type="text" class="@error('name') is-invalid @enderror" placeholder="Name, surname">
 						</div>
+						@error('name')
+						    <div class="alert alert-danger">{{ $message }}</div>
+						@enderror
 						<div class="form-element">
-							<input type="email" placeholder="E-Mail">
+							<input id="email" name="email" type="email" class="@error('email') is-invalid @enderror" placeholder="E-Mail">
 						</div>
+						@error('email')
+						    <div class="alert alert-danger">{{ $message }}</div>
+						@enderror
 						<div class="form-element">
-							<textarea placeholder="Message"></textarea>
+							<textarea id="message" name="message" class="@error('message') is-invalid @enderror" placeholder="Message"></textarea>
 						</div>
+						@error('message')
+						    <div class="alert alert-danger">{{ $message }}</div>
+						@enderror
 						<div class="form-element">
-							<button class="btn-secondary-box">Submit</button>
+							<input type="submit" class="btn-secondary-box"></button>
 						</div>
-					</div>
+					</form>
+
 				</div>
 			</div>
 		</div>
